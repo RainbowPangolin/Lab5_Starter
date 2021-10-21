@@ -14,7 +14,9 @@ function init() {
 
   const playButton = document.querySelector('button');
   playButton.addEventListener('click', function () {
-    talk();
+    if(selectVoice.selectedIndex != 0 && !synth.speaking){
+      talk();
+    }
   })
 }
 
@@ -41,7 +43,6 @@ function talk(){
   utterance.addEventListener('end', function(event){
     mouth.src = "assets/images/smiling.png";
   });
-
 
   mouth.src = "assets/images/smiling-open.png";
   //mouth close after time
